@@ -1,20 +1,19 @@
 <?php
 
 namespace Fazland\Freshsales\Data;
-use Fazland\Freshsales\FreshsalesObjectInterface;
 
 /**
  * @author Daniele Rapisarda <daniele.rapisarda@fazland.com>
  */
-class Contact implements FreshsalesObjectInterface
+class Contact implements ObjectInterface
 {
     /**
-     * @var integer
+     * @var int
      */
     private $id;
 
     /**
-     * string
+     * string.
      */
     private $firstName;
 
@@ -74,17 +73,17 @@ class Contact implements FreshsalesObjectInterface
     private $country;
 
     /**
-     * @var integer
+     * @var int
      */
     private $salesAccountId;
 
     /**
-     * @var integer
+     * @var int
      */
     private $leadSourceId;
 
     /**
-     * @var integer
+     * @var int
      */
     private $ownerId;
 
@@ -104,7 +103,7 @@ class Contact implements FreshsalesObjectInterface
     private $medium;
 
     /**
-     * @var integer
+     * @var int
      */
     private $campaignId;
 
@@ -159,6 +158,7 @@ class Contact implements FreshsalesObjectInterface
     public function setId($id)
     {
         $this->id = $id;
+
         return $this;
     }
 
@@ -178,6 +178,7 @@ class Contact implements FreshsalesObjectInterface
     public function setFirstName($firstName)
     {
         $this->firstName = $firstName;
+
         return $this;
     }
 
@@ -197,6 +198,7 @@ class Contact implements FreshsalesObjectInterface
     public function setLastName($lastName)
     {
         $this->lastName = $lastName;
+
         return $this;
     }
 
@@ -216,6 +218,7 @@ class Contact implements FreshsalesObjectInterface
     public function setJobTitle($jobTitle)
     {
         $this->jobTitle = $jobTitle;
+
         return $this;
     }
 
@@ -235,6 +238,7 @@ class Contact implements FreshsalesObjectInterface
     public function setDepartment($department)
     {
         $this->department = $department;
+
         return $this;
     }
 
@@ -254,6 +258,7 @@ class Contact implements FreshsalesObjectInterface
     public function setEmail($email)
     {
         $this->email = $email;
+
         return $this;
     }
 
@@ -273,6 +278,7 @@ class Contact implements FreshsalesObjectInterface
     public function setWorkNumber($workNumber)
     {
         $this->workNumber = $workNumber;
+
         return $this;
     }
 
@@ -292,6 +298,7 @@ class Contact implements FreshsalesObjectInterface
     public function setMobileNumber($mobileNumber)
     {
         $this->mobileNumber = $mobileNumber;
+
         return $this;
     }
 
@@ -311,6 +318,7 @@ class Contact implements FreshsalesObjectInterface
     public function setAddress($address)
     {
         $this->address = $address;
+
         return $this;
     }
 
@@ -330,6 +338,7 @@ class Contact implements FreshsalesObjectInterface
     public function setCity($city)
     {
         $this->city = $city;
+
         return $this;
     }
 
@@ -349,6 +358,7 @@ class Contact implements FreshsalesObjectInterface
     public function setState($state)
     {
         $this->state = $state;
+
         return $this;
     }
 
@@ -368,6 +378,7 @@ class Contact implements FreshsalesObjectInterface
     public function setZipcode($zipcode)
     {
         $this->zipcode = $zipcode;
+
         return $this;
     }
 
@@ -387,6 +398,7 @@ class Contact implements FreshsalesObjectInterface
     public function setCountry($country)
     {
         $this->country = $country;
+
         return $this;
     }
 
@@ -406,6 +418,7 @@ class Contact implements FreshsalesObjectInterface
     public function setSalesAccountId($salesAccountId)
     {
         $this->salesAccountId = $salesAccountId;
+
         return $this;
     }
 
@@ -425,6 +438,7 @@ class Contact implements FreshsalesObjectInterface
     public function setLeadSourceId($leadSourceId)
     {
         $this->leadSourceId = $leadSourceId;
+
         return $this;
     }
 
@@ -444,11 +458,12 @@ class Contact implements FreshsalesObjectInterface
     public function setOwnerId($ownerId)
     {
         $this->ownerId = $ownerId;
+
         return $this;
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isHasAuthority()
     {
@@ -456,18 +471,19 @@ class Contact implements FreshsalesObjectInterface
     }
 
     /**
-     * @param boolean $hasAuthority
+     * @param bool $hasAuthority
      *
      * @return $this
      */
     public function setHasAuthority($hasAuthority)
     {
         $this->hasAuthority = $hasAuthority;
+
         return $this;
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isDoNotDisturb()
     {
@@ -475,13 +491,14 @@ class Contact implements FreshsalesObjectInterface
     }
 
     /**
-     * @param boolean $doNotDisturb
+     * @param bool $doNotDisturb
      *
      * @return $this
      */
     public function setDoNotDisturb($doNotDisturb)
     {
         $this->doNotDisturb = $doNotDisturb;
+
         return $this;
     }
 
@@ -501,6 +518,7 @@ class Contact implements FreshsalesObjectInterface
     public function setMedium($medium)
     {
         $this->medium = $medium;
+
         return $this;
     }
 
@@ -520,6 +538,7 @@ class Contact implements FreshsalesObjectInterface
     public function setCampaignId($campaignId)
     {
         $this->campaignId = $campaignId;
+
         return $this;
     }
 
@@ -539,6 +558,7 @@ class Contact implements FreshsalesObjectInterface
     public function setKeyword($keyword)
     {
         $this->keyword = $keyword;
+
         return $this;
     }
 
@@ -558,6 +578,7 @@ class Contact implements FreshsalesObjectInterface
     public function setTimeZone($timeZone)
     {
         $this->timeZone = $timeZone;
+
         return $this;
     }
 
@@ -577,6 +598,7 @@ class Contact implements FreshsalesObjectInterface
     public function setFacebook($facebook)
     {
         $this->facebook = $facebook;
+
         return $this;
     }
 
@@ -596,6 +618,7 @@ class Contact implements FreshsalesObjectInterface
     public function setTwitter($twitter)
     {
         $this->twitter = $twitter;
+
         return $this;
     }
 
@@ -615,6 +638,7 @@ class Contact implements FreshsalesObjectInterface
     public function setLinkedin($linkedin)
     {
         $this->linkedin = $linkedin;
+
         return $this;
     }
 
@@ -634,6 +658,7 @@ class Contact implements FreshsalesObjectInterface
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
+
         return $this;
     }
 
@@ -653,7 +678,7 @@ class Contact implements FreshsalesObjectInterface
     public function setUpdatedAt($updatedAt)
     {
         $this->updatedAt = $updatedAt;
-        
+
         return $this;
     }
 
@@ -663,7 +688,7 @@ class Contact implements FreshsalesObjectInterface
     public function toArray(): array
     {
         return [
-            'last_name' => $this->getLastName()
+            'last_name' => $this->getLastName(),
         ];
     }
 
@@ -677,17 +702,16 @@ class Contact implements FreshsalesObjectInterface
 
     public function getDeleteAction(): string
     {
-        return 'contacts/' . $this->getId();
+        //@todo
     }
 
     public function getUpdateAction(): string
     {
-        return 'contacts/' . $this->getId();
+        //@todo
     }
 
     public function getGetAction(): string
     {
-        return 'contacts/' . $this->getId();
+        //@todo
     }
-
 }

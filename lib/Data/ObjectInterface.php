@@ -1,16 +1,9 @@
 <?php
 
-namespace Fazland\Freshsales;
+namespace Fazland\Freshsales\Data;
 
-/**
- * @author Daniele Rapisarda <daniele.rapisarda@fazland.com>
- */
-interface FreshsalesObjectInterface
+interface ObjectInterface
 {
-    /**
-     * The following methods are used to get the proper API URIs to execute the CRUD operations.
-     */
-
     /**
      * @return string
      */
@@ -33,6 +26,7 @@ interface FreshsalesObjectInterface
 
     /**
      * This method is used to create a proper data structure to be served to Freshsales API.
+     *
      * @return array
      */
     public function toArray(): array;

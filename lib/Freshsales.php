@@ -2,6 +2,7 @@
 
 namespace Fazland\Freshsales;
 
+use Fazland\Freshsales\Data\ObjectInterface;
 use GuzzleHttp\Client;
 
 /**
@@ -9,8 +10,14 @@ use GuzzleHttp\Client;
  */
 class Freshsales
 {
+    /**
+     * @var string
+     */
     private $domain;
 
+    /**
+     * @var string
+     */
     private $appToken;
 
     /**
@@ -20,6 +27,7 @@ class Freshsales
 
     /**
      * Freshsales constructor.
+     *
      * @param $domain
      * @param $appToken
      */
@@ -27,20 +35,20 @@ class Freshsales
     {
         $this->domain = $domain;
         $this->client = new Client([
-            'base_uri' => $domain
+            'base_uri' => $domain,
         ]);
     }
 
-    public function initMessage(array $customMessage = [])
+    public function add(ObjectInterface $object)
+    {
+        $this->client->request('POST', $this->domain.'/api/'.$object->getAddAction(), $this->initMessage($object->toArray()));
+    }
+
+    private function initMessage(array $customMessage = []): array
     {
         return array_merge($customMessage, [
             'application_token' => $this->appToken,
-            'sdk' => 'php'
+            'sdk' => 'php',
         ]);
-    }
-
-    public function add(FreshsalesObjectInterface $entity)
-    {
-        $this->client->request('POST', $this->domain . '/api/' . $entity->getAddAction(), $this->initMessage($entity->toArray()));
     }
 }
