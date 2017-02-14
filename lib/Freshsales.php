@@ -18,7 +18,7 @@ class Freshsales
     /**
      * @var string
      */
-    private $appToken;
+    private $apiKey;
 
     /**
      * @var Client
@@ -29,11 +29,12 @@ class Freshsales
      * Freshsales constructor.
      *
      * @param $domain
-     * @param $appToken
+     * @param $apiKey
      */
-    public function __construct($domain, $appToken)
+    public function __construct($domain, $apiKey)
     {
         $this->domain = $domain;
+        $this->apiKey = $apiKey;
         $this->client = new Client([
             'base_uri' => $domain,
         ]);
@@ -41,14 +42,15 @@ class Freshsales
 
     public function add(ObjectInterface $object)
     {
-        $this->client->request('POST', $this->domain.'/api/'.$object->getAddAction(), $this->initMessage($object->toArray()));
-    }
+        $options = [
+            'headers' => [
+                'Authorization' => 'Token token='. $this->apiKey
+            ],
+            'json' => $object->toArray()
+        ];
 
-    private function initMessage(array $customMessage = []): array
-    {
-        return array_merge($customMessage, [
-            'application_token' => $this->appToken,
-            'sdk' => 'php',
-        ]);
+        $url = $this->domain.'/api/'.$object->getAddAction();
+
+        return $this->client->request('POST', $url , $options);
     }
 }

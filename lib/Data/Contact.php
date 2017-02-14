@@ -467,7 +467,7 @@ class Contact implements ObjectInterface
      */
     public function isHasAuthority()
     {
-        return $this->hasAuthority;
+        return true == $this->hasAuthority;
     }
 
     /**
@@ -487,7 +487,7 @@ class Contact implements ObjectInterface
      */
     public function isDoNotDisturb()
     {
-        return $this->doNotDisturb;
+        return true == $this->doNotDisturb;
     }
 
     /**
@@ -687,8 +687,36 @@ class Contact implements ObjectInterface
      */
     public function toArray(): array
     {
-        return [
-            'last_name' => $this->getLastName(),
+
+        return $contact = [
+            'contact' => [
+                'id' => $this->getId(),
+                'first_name' => $this->getFirstName(),
+                'last_name' => $this->getLastName(),
+                'job_title' => $this->getJobTitle(),
+                'department' => $this->getDepartment(),
+                'email' => $this->getEmail(),
+                'work_number' => $this->getWorkNumber(),
+                'mobile_number' => $this->getMobileNumber(),
+                'address' => $this->getAddress(),
+                'city' => $this->getCity(),
+                'state' => $this->getState(),
+                'zipcode' => $this->getZipcode(),
+                'country' => $this->getCountry(),
+                'sales_account_id' => $this->getSalesAccountId(),
+                'lead_source_id' => $this->getLeadSourceId(),
+                'owner_id' => $this->getOwnerId(),
+                'has_authority' => $this->isHasAuthority(),
+                'do_not_disturb' => $this->isDoNotDisturb(),
+                'medium' => $this->getMedium(),
+                'campaign_id' => $this->getCampaignId(),
+                'keyword' => $this->getKeyword(),
+                'time_zone' => $this->getTimeZone(),
+                'facebook' => $this->getFacebook(),
+                'twitter' => $this->getTwitter(),
+                'linkedin' => $this->getLinkedin(),
+                'created_at' => $this->getCreatedAt(),
+            ]
         ];
     }
 
