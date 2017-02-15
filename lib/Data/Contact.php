@@ -143,6 +143,26 @@ class Contact implements ObjectInterface
     private $updatedAt;
 
     /**
+     * This array collects all the custom fields to be saved in the usual "key" => "value" fashion.
+     * BEWARE: to use a custom field, you have to create it in the Freshsales Administration panel > Contact Fields area.
+     * When this comment has been wrote, the url was <your domain>/settings/contacts/fields .
+     * After the field creation, open his edit panel. The proper name to use as field key is displayed in the
+     * "Internal name" area of the editing panel. When this comment has been wrote, the key name was generated to be
+     * in the shape of cf_<snake_case name of your field>
+     *
+     * @var array
+     */
+    private $customFields;
+
+    /**
+     * Contact constructor.
+     */
+    public function __construct()
+    {
+        $this->customFields = [];
+    }
+
+    /**
      * @return int
      */
     public function getId()
@@ -683,12 +703,57 @@ class Contact implements ObjectInterface
     }
 
     /**
+     * @return array
+     */
+    public function getCustomFields(): array
+    {
+        return $this->customFields;
+    }
+
+    /**
+     * @param array $customFields
+     * @return $this
+     */
+    public function setCustomFields(array $customFields): Contact
+    {
+        $this->customFields = $customFields;
+
+        return $this;
+    }
+
+    /**
+     * @param string $fieldName
+     * @param string $value
+     *
+     * @return $this
+     */
+    public function setCustomField(string $fieldName, string $value)
+    {
+        $this->customFields[$fieldName] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @param string $fieldName
+     *
+     * @return mixed|null
+     */
+    public function getCustomField(string $fieldName) {
+        if (! array_key_exists($fieldName, $this->customFields)) {
+            return null;
+        }
+
+        return $this->customFields[$fieldName];
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function toArray(): array
     {
 
-        return $contact = [
+        $contact = [
             'contact' => [
                 'id' => $this->getId(),
                 'first_name' => $this->getFirstName(),
@@ -718,6 +783,12 @@ class Contact implements ObjectInterface
                 'created_at' => $this->getCreatedAt(),
             ]
         ];
+
+        if (null !== $this->getCustomFields()) {
+            $contact['contact']['custom_field'] = $this->getCustomFields();
+        }
+
+        return $contact;
     }
 
     /**
