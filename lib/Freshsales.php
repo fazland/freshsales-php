@@ -53,4 +53,38 @@ class Freshsales
 
         return $this->client->request('POST', $url , $options);
     }
+
+    public function update(ObjectInterface $object)
+    {
+        $options = [
+            'headers' => [
+                'Authorization' => 'Token token='. $this->apiKey
+            ],
+            'json' => $object->toArray()
+        ];
+
+        $url = $this->domain.'/api/'.$object->getUpdateAction();
+
+        return $this->client->request('PUT', $url, $options)->getStatusCode();
+    }
+
+    public function get(ObjectInterface $object)
+    {
+        //@todo
+    }
+
+    public function filteredSearch(ObjectInterface $object, $filterRule)
+    {
+        $options = [
+            'headers' => [
+                'Authorization' => 'Token token='. $this->apiKey
+            ],
+            'json' => $filterRule
+        ];
+
+        $url = $this->domain.'/api/'.$object->getFilteredSearchAction();
+
+        return $this->client->request('POST', $url , $options)->getBody()->getContents();
+    }
+
 }

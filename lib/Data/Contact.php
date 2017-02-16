@@ -175,7 +175,7 @@ class Contact implements ObjectInterface
      *
      * @return $this
      */
-    public function setId($id)
+    public function setId(int $id)
     {
         $this->id = $id;
 
@@ -806,11 +806,17 @@ class Contact implements ObjectInterface
 
     public function getUpdateAction(): string
     {
-        //@todo
+        return 'contacts/' . $this->getId();
     }
 
-    public function getGetAction(): string
+    public function getGetAction(array $include = null): string
     {
-        //@todo
+        return 'contacts/' . $this->getId() . '?' . http_build_query($include);
     }
+
+    public function getFilteredSearchAction(): string
+    {
+        return 'filtered_search/contact';
+    }
+
 }

@@ -20,9 +20,16 @@ interface ObjectInterface
     public function getUpdateAction(): string;
 
     /**
+     * @param array|null $include
+     *
      * @return string
      */
-    public function getGetAction(): string;
+    public function getGetAction(array $include = null): string;
+
+    /**
+     * @return string
+     */
+    public function getFilteredSearchAction(): string;
 
     /**
      * This method is used to create a proper data structure to be served to Freshsales API.

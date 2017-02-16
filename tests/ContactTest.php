@@ -49,11 +49,20 @@ class ContactTest extends TestCase
 
     public function testCustomFieldsIncludedInArray()
     {
-        $customFieldkey = 'cf_test';
-        $customFiledValue = 'this is a test';
-        $this->contact->setCustomField($customFieldkey, $customFiledValue);
+        $firstCustomFieldKey = 'cf_test_1';
+        $firstCustomFiledValue = 'this is a test';
+        $this->contact->setCustomField($firstCustomFieldKey, $firstCustomFiledValue);
+
+        $secondCustomFieldKey = 'cf_test_2';
+        $secondCustomFiledValue = 'this is a test too';
+        $this->contact->setCustomField($secondCustomFieldKey, $secondCustomFiledValue);
+
         $contactArray = $this->contact->toArray();
-        $this->assertArrayHasKey($customFieldkey, $this->contact->toArray()['contact']['custom_field']);
-        $this->assertEquals($contactArray['contact']['custom_field'][$customFieldkey], $customFiledValue);
+
+        $this->assertArrayHasKey($firstCustomFieldKey, $this->contact->toArray()['contact']['custom_field']);
+        $this->assertEquals($contactArray['contact']['custom_field'][$firstCustomFieldKey], $firstCustomFiledValue);
+
+        $this->assertArrayHasKey($secondCustomFieldKey, $this->contact->toArray()['contact']['custom_field']);
+        $this->assertEquals($contactArray['contact']['custom_field'][$secondCustomFieldKey], $secondCustomFiledValue);
     }
 }
