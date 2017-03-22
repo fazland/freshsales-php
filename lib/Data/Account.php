@@ -163,11 +163,11 @@ class Account implements ObjectInterface
     }
 
     /**
-     * @param string $address
+     * @param string|null $address
      *
-     * @return Account
+     * @return $this
      */
-    public function setAddress(string $address)
+    public function setAddress(string $address = null)
     {
         $this->address = $address;
 
@@ -183,11 +183,11 @@ class Account implements ObjectInterface
     }
 
     /**
-     * @param string $city
+     * @param string|null $city
      *
      * @return Account
      */
-    public function setCity(string $city)
+    public function setCity(string $city = null)
     {
         $this->city = $city;
 
@@ -203,11 +203,11 @@ class Account implements ObjectInterface
     }
 
     /**
-     * @param string $state
+     * @param string|null $state
      *
      * @return Account
      */
-    public function setState(string $state)
+    public function setState(string $state = null)
     {
         $this->state = $state;
 
@@ -223,11 +223,11 @@ class Account implements ObjectInterface
     }
 
     /**
-     * @param string $zipcode
+     * @param string|null $zipcode
      *
      * @return Account
      */
-    public function setZipcode(string $zipcode)
+    public function setZipcode(string $zipcode = null)
     {
         $this->zipcode = $zipcode;
 
@@ -243,11 +243,11 @@ class Account implements ObjectInterface
     }
 
     /**
-     * @param int $industryTypeId
+     * @param int|null $industryTypeId
      *
      * @return Account
      */
-    public function setIndustryTypeId(int $industryTypeId)
+    public function setIndustryTypeId(int $industryTypeId = null)
     {
         $this->industryTypeId = $industryTypeId;
 
@@ -263,11 +263,11 @@ class Account implements ObjectInterface
     }
 
     /**
-     * @param int $businessTypeId
+     * @param int|null $businessTypeId
      *
      * @return Account
      */
-    public function setBusinessTypeId(int $businessTypeId)
+    public function setBusinessTypeId(int $businessTypeId = null)
     {
         $this->businessTypeId = $businessTypeId;
 
@@ -283,11 +283,11 @@ class Account implements ObjectInterface
     }
 
     /**
-     * @param int $numbersOfEmployees
+     * @param int|null $numbersOfEmployees
      *
      * @return Account
      */
-    public function setNumbersOfEmployees(int $numbersOfEmployees)
+    public function setNumbersOfEmployees(int $numbersOfEmployees = null)
     {
         $this->numbersOfEmployees = $numbersOfEmployees;
 
@@ -303,11 +303,11 @@ class Account implements ObjectInterface
     }
 
     /**
-     * @param string $annualRevenue
+     * @param string|null $annualRevenue
      *
      * @return Account
      */
-    public function setAnnualRevenue(string $annualRevenue)
+    public function setAnnualRevenue(string $annualRevenue = null)
     {
         $this->annualRevenue = $annualRevenue;
 
@@ -323,11 +323,11 @@ class Account implements ObjectInterface
     }
 
     /**
-     * @param string $website
+     * @param string|null $website
      *
      * @return Account
      */
-    public function setWebsite(string $website)
+    public function setWebsite(string $website = null)
     {
         $this->website = $website;
 
@@ -343,11 +343,11 @@ class Account implements ObjectInterface
     }
 
     /**
-     * @param string $phone
+     * @param string|null $phone
      *
      * @return Account
      */
-    public function setPhone(string $phone)
+    public function setPhone(string $phone = null)
     {
         $this->phone = $phone;
 
@@ -363,11 +363,11 @@ class Account implements ObjectInterface
     }
 
     /**
-     * @param int $ownerId
+     * @param int|null $ownerId
      *
      * @return Account
      */
-    public function setOwnerId(int $ownerId)
+    public function setOwnerId(int $ownerId = null)
     {
         $this->ownerId = $ownerId;
 
@@ -383,11 +383,11 @@ class Account implements ObjectInterface
     }
 
     /**
-     * @param string $facebook
+     * @param string|null $facebook
      *
      * @return Account
      */
-    public function setFacebook(string $facebook)
+    public function setFacebook(string $facebook = null)
     {
         $this->facebook = $facebook;
 
@@ -403,11 +403,11 @@ class Account implements ObjectInterface
     }
 
     /**
-     * @param string $twitter
+     * @param string|null $twitter
      *
      * @return Account
      */
-    public function setTwitter(string $twitter)
+    public function setTwitter(string $twitter = null)
     {
         $this->twitter = $twitter;
 
@@ -423,11 +423,11 @@ class Account implements ObjectInterface
     }
 
     /**
-     * @param string $linkedin
+     * @param string|null $linkedin
      * 
      * @return Account
      */
-    public function setLinkedin(string $linkedin)
+    public function setLinkedin(string $linkedin = null)
     {
         $this->linkedin = $linkedin;
         
@@ -443,11 +443,11 @@ class Account implements ObjectInterface
     }
 
     /**
-     * @param int $territoryId
+     * @param int|null $territoryId
      * 
      * @return Account
      */
-    public function setTerritoryId(int $territoryId)
+    public function setTerritoryId(int $territoryId = null)
     {
         $this->territoryId = $territoryId;
         
@@ -463,11 +463,11 @@ class Account implements ObjectInterface
     }
 
     /**
-     * @param \DateTime $createdAt
+     * @param \DateTime|null $createdAt
      * 
      * @return Account
      */
-    public function setCreatedAt(\DateTime $createdAt)
+    public function setCreatedAt(\DateTime $createdAt = null)
     {
         $this->createdAt = $createdAt;
         
@@ -483,11 +483,11 @@ class Account implements ObjectInterface
     }
 
     /**
-     * @param \DateTime $updatedAt
+     * @param \DateTime|null $updatedAt
      * 
-     * @return Account
+     * @return $this
      */
-    public function setUpdatedAt(\DateTime $updatedAt): string
+    public function setUpdatedAt(\DateTime $updatedAt = null)
     {
         $this->updatedAt = $updatedAt;
         
@@ -503,10 +503,11 @@ class Account implements ObjectInterface
     }
 
     /**
-     * @param array $customFields
+     * @param array|null $customFields
+     *
      * @return $this
      */
-    public function setCustomFields(array $customFields): Contact
+    public function setCustomFields(array $customFields = null)
     {
         $this->customFields = $customFields;
 
